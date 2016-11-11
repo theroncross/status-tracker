@@ -26,16 +26,18 @@ const Status = (props) => {
     }
   })();
 
-  console.log(statusSummary)
+  const addBold = str => {
+    return {__html: str.replace(/(success|fail|error)/i, '<strong>$1</strong>')}
+  }
+
+  const boldDescription = addBold(props.status)
 
   return(
     <div className="status__container">
       <p className="status__summary">
         {statusSummary}{props.end_date && <Time time={props.end_date} />}
       </p>
-      <p className="status__description">
-        {props.status}
-      </p>
+      <p className="status__description" dangerouslySetInnerHTML={addBold(props.status)} />
     </div>
   )
 }

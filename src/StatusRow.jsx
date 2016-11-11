@@ -1,5 +1,7 @@
 import React from 'react';
 import Status from './Status.jsx';
+import Progress from './Progress.jsx';
+import Time from './Time.jsx';
 
 const StatusRow = (props) => {
   const { start_date, end_date, request_date, fullname, email, processed, total, status } = props;
@@ -15,9 +17,9 @@ const StatusRow = (props) => {
           status={status}
         />
       </td>
-      <td>{processed}/{total}</td>
+      <td><Progress processed={processed} total={total} /></td>
       <td><a href={`mailto:${email}`} >{fullname}</a></td>
-      <td>{request_date}</td>
+      <td><Time time={request_date} /></td>
     </tr>
   )
 }
