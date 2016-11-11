@@ -26,6 +26,10 @@ const Status = (props) => {
     }
   })();
 
+  const statusTime = (() => {
+
+  })
+
   const addBold = str => {
     return {__html: str.replace(/(success|fail|error)/i, '<strong>$1</strong>')}
   }
