@@ -28,6 +28,12 @@ class StatusTable extends Component {
 
     return(
       <table className="status-table">
+        <thead className="status-table__header">
+          <th>status</th>
+          <th>progress</th>
+          <th>user</th>
+          <th>request date</th>
+        </thead>
         <tbody>{statusRows}</tbody>
       </table>
     );

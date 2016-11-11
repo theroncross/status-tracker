@@ -1,24 +1,36 @@
-.App {
-  text-align: center;
+table {
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  border-left: solid 1px #f2f2f2;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.status-table__header {
+  text-align: left;
+  color: #777;
 }
 
-.App-intro {
-  font-size: large;
+.status-table__row {
+  vertical-align: top;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.status-table__row td {
+  width: 25%;
+  overflow: visible;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  padding: 2px;
+}
+
+.status__summary {
+  margin: 0;
+  padding: 2px;
+}
+
+.status__description {
+  margin: 0;
+  padding: 8px 30px;
 }

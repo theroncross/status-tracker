@@ -1,15 +1,23 @@
 import React from 'react';
-import moment from 'moment';
+import Status from './Status.jsx';
 
 const StatusRow = (props) => {
-  const formatTime = time => moment(time.replace(/T/, ' ')).format('MM/DD/YYYY hh:mm A');
+  const { start_date, end_date, request_date, fullname, email, processed, total, status } = props;
 
   return (
-    <tr>
-      <td>{props.start_date && formatTime(props.start_date)}<br />{props.status}</td>
-      <td>{props.processed}/{props.total}</td>
-      <td><a href={`mailto:${props.email}`} >{props.fullname}</a></td>
-      <td>{props.request_date}</td>
+    <tr className="status-table__row">
+      <td>
+        <Status
+          start_date={start_date}
+          end_date={end_date}
+          total={total}
+          processed={processed}
+          status={status}
+        />
+      </td>
+      <td>{processed}/{total}</td>
+      <td><a href={`mailto:${email}`} >{fullname}</a></td>
+      <td>{request_date}</td>
     </tr>
   )
 }
