@@ -26,7 +26,6 @@ class StatusTable extends Component {
     // this.setState({ transfers: this.sortData(data) });
     const path = './test.json'
     fetch(path)
-    .then(json => JSON.parse(json))
     .then(res => {
       const sortedData = this.sortData(res['DATA']);
       this.setState({ transfers: sortedData });
