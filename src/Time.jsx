@@ -5,7 +5,7 @@ const Time = (props) => {
   const formattedTime = (() => {
     const { time, fromNow, remaining } = props;
     const localOffset = moment().format('Z');
-    const isoTime = moment(time).isValid() ? time : moment(time, 'YYYY-MM-DDThh:mm:ss.SSSZ').toISOString();
+    const isoTime = moment(time, 'YYYY-MM-DDThh:mm:ss.SSSZ').toISOString();
 
     if(fromNow) {
       const timeFormat = remaining < 48 * 60 * 60 * 1000 ? 'hh:mm:ss' : 'D [days]'

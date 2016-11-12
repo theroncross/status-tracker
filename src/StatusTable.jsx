@@ -12,7 +12,12 @@ class StatusTable extends Component {
   }
 
   componentDidMount() {
-    this.setState({ transfers: data["DATA"] })
+    const sortedByActive = data["DATA"].sort((a, b) => {
+      if(a.end_date && !b.end_date) return -1;
+      if(!a.end_date && b.end_date) return 1;
+      return a.end_date < b.end_date;
+    });
+    this.setState({ transfers: sortedByActive });
   }
 
   render() {
