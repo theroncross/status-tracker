@@ -24,9 +24,8 @@ class StatusTable extends Component {
 
   componentDidMount() {
     // this.setState({ transfers: this.sortData(data) });
-    const path = 'https://theroncross.github.io/status-tracker/test.json'
+    const path = './test.json'
     fetch(path)
-    .then(json => JSON.parse(json))
     .then(res => {
       const sortedData = this.sortData(res['DATA']);
       this.setState({ transfers: sortedData });
