@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StatusRow from './StatusRow.jsx';
-// const data = require('../public/test.json')["DATA"];
+const data = require('./test.json')["DATA"];
 
 class StatusTable extends Component {
   constructor(props) {
@@ -23,17 +23,18 @@ class StatusTable extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ transfers: this.sortData(data) });
-    const path = './test.json'
-    fetch(path)
-    .then(res => {
-      const sortedData = this.sortData(res['DATA']);
-      this.setState({ transfers: sortedData });
-    })
-    .catch(err => {
-      console.error("Load error: ", err);
-      this.setState({ errorMessage: "Problem loading data" });
-    })
+    console.log(data)
+    this.setState({ transfers: this.sortData(data) });
+    // const url = '/./test.json'
+    // fetch(url)
+    // .then(res => {
+    //   const sortedData = this.sortData(res['DATA']);
+    //   this.setState({ transfers: sortedData });
+    // })
+    // .catch(err => {
+    //   console.error("Load error: ", err);
+    //   this.setState({ errorMessage: "Problem loading data" });
+    // })
   }
 
   render() {
