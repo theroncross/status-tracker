@@ -4,7 +4,7 @@ import Progress from './Progress.jsx';
 import Time from './Time.jsx';
 
 const StatusRow = (props) => {
-  const { start_date, end_date, request_date, fullname, email, processed, total, status } = props;
+  const { start_date, end_date, remaining, request_date, fullname, email, processed, total, status } = props;
 
   return (
     <tr className="status-table__row">
@@ -12,6 +12,7 @@ const StatusRow = (props) => {
         <Status
           start_date={start_date}
           end_date={end_date}
+          remaining={remaining}
           total={total}
           processed={processed}
           status={status}

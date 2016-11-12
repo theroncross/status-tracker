@@ -25,7 +25,7 @@ const Progress = (props) => {
   const totalInBN = byteNotation(props.total);
 
   return(
-    <p>{processedInBN}/{totalInBN}</p>
+    <p className="status__progress">{processedInBN}/{totalInBN}</p>
   );
 };
 

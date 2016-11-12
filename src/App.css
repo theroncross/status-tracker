@@ -25,7 +25,7 @@ tr:nth-child(odd) {
   padding: 2px;
 }
 
-.status__summary {
+.status__time {
   margin: 0;
   padding: 2px;
 }
@@ -33,4 +33,9 @@ tr:nth-child(odd) {
 .status__description {
   margin: 0;
   padding: 8px 30px;
+}
+
+.status__progress {
+  margin: 0;
+  padding: 2px;
 }
