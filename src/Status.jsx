@@ -31,7 +31,7 @@ const Status = (props) => {
 
   return(
     <div className="status__container">
-      <p className="status__time">{timeLabel} <Time {...timeProps} /></p>
+      <p className="status__time">{timeLabel}{timeProps && <Time {...timeProps} />}</p>
       <p className="status__description" dangerouslySetInnerHTML={highlightedStatus} />
     </div>
   )
