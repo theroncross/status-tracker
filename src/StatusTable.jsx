@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StatusRow from './StatusRow.jsx';
-const data = require('./test.json')["DATA"];
+// const data = require('../public/test.json')["DATA"];
 
 class StatusTable extends Component {
   constructor(props) {
@@ -23,18 +23,18 @@ class StatusTable extends Component {
   }
 
   componentDidMount() {
-    this.setState({ transfers: this.sortData(data) });
-
-    // fetch(path)
-    // .then(res => {
-    //   console.log(res)
-    //   const sortedData = this.sortData(res['DATA']);
-    //   this.setState({ transfers: sortedData });
-    // })
-    // .catch(err => {
-    //   console.error("Load error: ", err);
-    //   this.setState({ errorMessage: "Problem loading data" });
-    // })
+    // this.setState({ transfers: this.sortData(data) });
+    const path = 'https://theroncross.github.io/status-tracker/test.json'
+    fetch(path)
+    .then(json => JSON.parse(json))
+    .then(res => {
+      const sortedData = this.sortData(res['DATA']);
+      this.setState({ transfers: sortedData });
+    })
+    .catch(err => {
+      console.error("Load error: ", err);
+      this.setState({ errorMessage: "Problem loading data" });
+    })
   }
 
   render() {
