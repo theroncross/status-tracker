@@ -1,0 +1,76 @@
+exports[`Status component renders correctly renders "ERROR" correctly 1`] = `
+<div
+  className="status__container">
+  <p
+    className="status__time">
+    Halted: 
+    <span>
+      11/03/2013 06:01 AM
+    </span>
+  </p>
+  <p
+    className="status__description"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Task <strong>Fail</strong>ed",
+      }
+    } />
+</div>
+`;
+
+exports[`Status component renders correctly renders "IN PROGRESS" correctly 1`] = `
+<div
+  className="status__container">
+  <p
+    className="status__time">
+    Time Remaining: 
+    <span>
+      11 days
+    </span>
+  </p>
+  <p
+    className="status__description"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Task Progressing",
+      }
+    } />
+</div>
+`;
+
+exports[`Status component renders correctly renders "INACTIVE" correctly 1`] = `
+<div
+  className="status__container">
+  <p
+    className="status__time">
+    not started
+  </p>
+  <p
+    className="status__description"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Task requires action before proceeding",
+      }
+    } />
+</div>
+`;
+
+exports[`Status component renders correctly renders "SUCCESS" correctly 1`] = `
+<div
+  className="status__container">
+  <p
+    className="status__time">
+    Completed: 
+    <span>
+      01/18/2014 08:15 AM
+    </span>
+  </p>
+  <p
+    className="status__description"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "The system reports <strong>success</strong>",
+      }
+    } />
+</div>
+`;

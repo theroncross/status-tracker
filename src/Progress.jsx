@@ -21,7 +21,7 @@ const Progress = (props) => {
     return str || null;
   }
 
-  const processedInBN = byteNotation(props.processed);
+  const processedInBN = props.processed ? byteNotation(props.processed): '0 b';
   const totalInBN = byteNotation(props.total);
 
   return(

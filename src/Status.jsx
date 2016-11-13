@@ -19,7 +19,6 @@ const Status = (props) => {
       return {
         time: start_date,
         remaining: remaining,
-        fromNow: true,
       };
     }
     return null;

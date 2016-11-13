@@ -3,11 +3,11 @@ import moment from 'moment';
 
 const Time = (props) => {
   const formattedTime = (() => {
-    const { time, fromNow, remaining } = props;
+    const { time, remaining } = props;
     const localOffset = moment().format('Z');
     const isoTime = moment(time, 'YYYY-MM-DDThh:mm:ss.SSSZ').toISOString();
 
-    if(fromNow) {
+    if(time && remaining) {
       const timeFormat = remaining < 48 * 60 * 60 * 1000 ? 'hh:mm:ss' : 'D [days]'
       return moment.utc(remaining).format(timeFormat);
     }

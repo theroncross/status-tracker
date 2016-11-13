@@ -23,9 +23,9 @@ class StatusTable extends Component {
   }
 
   componentDidMount() {
-    console.log(data)
     this.setState({ transfers: this.sortData(data) });
-    // const url = '/./test.json'
+
+    // const url = ''
     // fetch(url)
     // .then(res => {
     //   const sortedData = this.sortData(res['DATA']);

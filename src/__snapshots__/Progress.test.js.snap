@@ -1,0 +1,53 @@
+exports[`Progress component renders correctly renders Gigabytes correctly 1`] = `
+<p
+  className="status__progress">
+  4.66 GB
+  /
+  193 MB
+</p>
+`;
+
+exports[`Progress component renders correctly renders Megabytes correctly 1`] = `
+<p
+  className="status__progress">
+  4.77 MB
+  /
+  193 MB
+</p>
+`;
+
+exports[`Progress component renders correctly renders Terabytes correctly 1`] = `
+<p
+  className="status__progress">
+  4.55 TB
+  /
+  193 MB
+</p>
+`;
+
+exports[`Progress component renders correctly renders bytes correctly 1`] = `
+<p
+  className="status__progress">
+  500 b
+  /
+  193 MB
+</p>
+`;
+
+exports[`Progress component renders correctly renders kilobytes correctly 1`] = `
+<p
+  className="status__progress">
+  4.88 kB
+  /
+  193 MB
+</p>
+`;
+
+exports[`Progress component renders correctly renders without processsed correctly 1`] = `
+<p
+  className="status__progress">
+  0 b
+  /
+  193 MB
+</p>
+`;
