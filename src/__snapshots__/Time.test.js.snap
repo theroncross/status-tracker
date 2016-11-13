@@ -1,0 +1,17 @@
+exports[`Time component renders correctly renders date correctly 1`] = `
+<span>
+  01/18/2014 08:15 AM
+</span>
+`;
+
+exports[`Time component renders correctly renders large remaining correctly 1`] = `
+<span>
+  4 days
+</span>
+`;
+
+exports[`Time component renders correctly renders small remaining correctly 1`] = `
+<span>
+  12:06:27
+</span>
+`;

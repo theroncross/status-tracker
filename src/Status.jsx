@@ -2,42 +2,36 @@ import React from 'react';
 import Time from './Time.jsx';
 
 const Status = (props) => {
-  const classifyStatus = (data) => {
-    const { start_date, end_date, total, processed } = data;
-    if(!start_date) return 'INACTIVE';
-    if(start_date && end_date && total !== processed) return 'ERROR';
-    if(start_date && !end_date && total !== processed) return 'IN PROGRESS';
-    if(start_date && end_date && total === processed) return 'SUCCESS';
-  };
+  const { start_date, end_date, total, processed, remaining, status } = props;
 
-  const statusSummary = (() => {
-    const { start_date, end_date, total, processed } = props;
-    switch(classifyStatus({ start_date, end_date, total, processed })) {
-      case 'INACTIVE':
-        return 'not started';
-      case 'ERROR':
-        return 'Completed: ';
-      case 'IN PROGRESS':
-        return 'Halted: ';
-      case 'SUCCESS':
-        return 'Completed: ';
-      default:
-        return null;
-    }
+  const timeLabel = (() => {
+    if(!start_date) return 'not started';
+    if(start_date && end_date && total !== processed) return 'Halted: ';
+    if(start_date && !end_date && total !== processed) return 'Time Remaining: ';
+    if(start_date && end_date && total === processed) return 'Completed: ';
   })();
 
-  const addBold = str => {
-    return {__html: str.replace(/(success|fail|error)/i, '<strong>$1</strong>')}
-  }
+  const timeProps = (() => {
+    if(end_date) {
+      return { time: end_date };
+    }
+    if(remaining && start_date) {
+      return {
+        time: start_date,
+        remaining: remaining,
+      };
+    }
+    return null;
+  })();
 
-  const boldDescription = addBold(props.status)
+  const highlightedStatus = (() => {
+    return { __html: status.replace(/(success|fail|error)/i, '<strong>$1</strong>') }
+  })();
 
   return(
     <div className="status__container">
-      <p className="status__summary">
-        {statusSummary}{props.end_date && <Time time={props.end_date} />}
-      </p>
-      <p className="status__description" dangerouslySetInnerHTML={addBold(props.status)} />
+      <p className="status__time">{timeLabel}{timeProps && <Time {...timeProps} />}</p>
+      <p className="status__description" dangerouslySetInnerHTML={highlightedStatus} />
     </div>
   )
 }

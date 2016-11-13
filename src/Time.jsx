@@ -2,10 +2,21 @@ import React from 'react';
 import moment from 'moment';
 
 const Time = (props) => {
-  const formatTime = time => moment(time.replace(/T/, ' ')).format('MM/DD/YYYY hh:mm A');
+  const formattedTime = (() => {
+    const { time, remaining } = props;
+    const localOffset = moment().format('Z');
+    const isoTime = moment(time, 'YYYY-MM-DDThh:mm:ss.SSSZ').toISOString();
+
+    if(time && remaining) {
+      const timeFormat = remaining < 48 * 60 * 60 * 1000 ? 'hh:mm:ss' : 'D [days]'
+      return moment.utc(remaining).format(timeFormat);
+    }
+
+    return moment(isoTime.replace(/Z/, localOffset)).format('MM/DD/YYYY hh:mm A');
+  })();
 
   return (
-    <span>{formatTime(props.time)}</span>
+    <span>{formattedTime}</span>
   );
 };
 
