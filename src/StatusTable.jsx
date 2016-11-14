@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import StatusRow from './StatusRow.jsx';
-const data = require('./test.json')["DATA"];
 
 class StatusTable extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      errorMessage: null,
-      transfers: [],
+      transfers: this.props.data.DATA,
     }
 
     this.sortData = this.sortData.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    this.setState({ transfers: nextProps.data.DATA})
   }
 
   sortData(data) {
@@ -22,47 +25,29 @@ class StatusTable extends Component {
     });
   }
 
-  componentDidMount() {
-    this.setState({ transfers: this.sortData(data) });
-
-    // const url = ''
-    // fetch(url)
-    // .then(res => {
-    //   const sortedData = this.sortData(res['DATA']);
-    //   this.setState({ transfers: sortedData });
-    // })
-    // .catch(err => {
-    //   console.error("Load error: ", err);
-    //   this.setState({ errorMessage: "Problem loading data" });
-    // })
-  }
-
   render() {
-      const statusRows = this.state.transfers.map(transfer => {
-        const { id, ...props } = transfer;
-        return (
-          <StatusRow
-            key={id}
-            {...props}
-          />
-        )
-      });
+    const statusRows = this.state.transfers.map(transfer => {
+      const { id, ...props } = transfer;
+      return (
+        <StatusRow
+          key={id}
+          {...props}
+        />
+      )
+    });
 
     return(
-      <div>
-        <table className="status-table">
-          <thead className="status-table__header">
-            <tr>
-              <th>status</th>
-              <th>progress</th>
-              <th>user</th>
-              <th>request date</th>
-            </tr>
-          </thead>
-          <tbody>{statusRows}</tbody>
-        </table>
-        {this.state.errorMessage}
-      </div>
+      <table className="status-table">
+        <thead className="status-table__header">
+          <tr>
+            <th>status</th>
+            <th>progress</th>
+            <th>user</th>
+            <th>request date</th>
+          </tr>
+        </thead>
+        <tbody>{statusRows}</tbody>
+      </table>
     );
   }
 }
