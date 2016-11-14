@@ -10,4 +10,4 @@ You can see a sample of the output at [https://theroncross.github.io/status-trac
 
 The app was created using the [create-react-app](https://github.com/facebookincubator/create-react-app) package.
 
-As it stands, it only pulls in locally stored json data. A fetch call is commented out, and only needs a path to the proper rest api endpoint to pull in outside data.
+The selector can be used to load locally stored json files, which intentionally include a variety of errors.
