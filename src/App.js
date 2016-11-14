@@ -51,7 +51,7 @@ class App extends Component {
           <option value='test3'>test3</option>
           <option value='test4'>test4</option>
         </select>
-        {this.state.data.DATA && <StatusTable data={this.state.data} />}
+        {this.state.data.DATA && <StatusTable data={this.state.data.DATA} />}
         <p>{this.state.errorMessage}</p>
       </div>
     );
