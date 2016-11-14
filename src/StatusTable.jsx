@@ -1,55 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import StatusRow from './StatusRow.jsx';
 
-class StatusTable extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      transfers: this.props.data.DATA,
-    }
-
-    this.sortData = this.sortData.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    this.setState({ transfers: nextProps.data.DATA})
-  }
-
-  sortData(data) {
-    return [...data].sort((a, b) => {
+const StatusTable = (props) => {
+  const sorted = rows => {
+    return [...rows].sort((a, b) => {
       if(a.end_date && !b.end_date) return -1;
       if(!a.end_date && b.end_date) return 1;
       return a.end_date < b.end_date;
     });
   }
 
-  render() {
-    const statusRows = this.state.transfers.map(transfer => {
-      const { id, ...props } = transfer;
-      return (
-        <StatusRow
-          key={id}
-          {...props}
-        />
-      )
-    });
+  const rows = props.data.map(row => {
+    const { id, ...props } = row;
+    return (
+      <StatusRow
+        key={id}
+        {...props}
+      />
+    )
+  });
 
-    return(
-      <table className="status-table">
-        <thead className="status-table__header">
-          <tr>
-            <th>status</th>
-            <th>progress</th>
-            <th>user</th>
-            <th>request date</th>
-          </tr>
-        </thead>
-        <tbody>{statusRows}</tbody>
-      </table>
-    );
-  }
+  return(
+    <table className="status-table">
+      <thead className="status-table__header">
+        <tr>
+          <th>status</th>
+          <th>progress</th>
+          <th>user</th>
+          <th>request date</th>
+        </tr>
+      </thead>
+      <tbody>{sorted(rows)}</tbody>
+    </table>
+  );
 }
+
 
 export default StatusTable;

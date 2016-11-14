@@ -1,7 +1,7 @@
 import React from 'react';
 import Time from './Time.jsx';
 
-const Status = (props) => {
+const Status = props => {
   const { start_date, end_date, total, processed, remaining, status } = props;
 
   const timeLabel = (() => {
